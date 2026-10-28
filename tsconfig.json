@@ -4,6 +4,7 @@
         "noEmit": true,
 
         "module": "nodenext",
+        "moduleResolution": "nodenext",
         "target": "esnext",
         "types": [],
 
