@@ -19,6 +19,19 @@ footer {
     align-items: center;
     justify-content: center;
 }
+.footer__links {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+.footer__links-svg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 50%;
+    background-color: white;
+}
 footer .copyright {
     font-size: 14px;
     color: #333;
