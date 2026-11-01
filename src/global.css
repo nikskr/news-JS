@@ -20,6 +20,7 @@ footer {
     justify-content: center;
     flex-wrap: wrap;
     margin-top: auto;
+    padding: 20px;
 }
 .footer__links {
     display: flex;
