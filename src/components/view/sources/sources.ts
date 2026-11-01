@@ -1,4 +1,4 @@
-import type { ArticleSource, SourceItem } from '../../../types';
+import type { SourceItem } from '../../../types';
 import './sources.css';
 
 class Sources {
