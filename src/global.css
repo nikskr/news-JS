@@ -18,6 +18,8 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
+    margin-top: auto;
 }
 .footer__links {
     display: flex;
@@ -34,8 +36,9 @@ footer {
 }
 footer .copyright {
     font-size: 14px;
-    color: #333;
+    color: #aaa;
     text-align: center;
+    flex-basis: 100%;
 }
 footer .copyright a {
     color: #444;
