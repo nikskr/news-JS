@@ -6,8 +6,6 @@ class AppLoader extends Loader {
             super(process.env.API_URL, {
                 apiKey: process.env.API_KEY,
             });
-        } else {
-            console.log('Check API_URL and API_KEY definition.');
         }
     }
 }
