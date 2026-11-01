@@ -1,0 +1,32 @@
+{
+    "compilerOptions": {
+        "allowJs": true,
+
+        "module": "ESNext",
+        "moduleResolution": "bundler",
+        "target": "esnext",
+        "types": ["node"],
+
+        // Other Outputs
+        "sourceMap": true,
+        "declaration": true,
+        "declarationMap": true,
+
+        // Stricter Typechecking Options
+        "noUncheckedIndexedAccess": true,
+        "exactOptionalPropertyTypes": true,
+
+        // Recommended Options
+        "strict": true,
+        "jsx": "react-jsx",
+        "verbatimModuleSyntax": true,
+        "isolatedModules": true,
+        "noUncheckedSideEffectImports": true,
+        "moduleDetection": "force",
+        "skipLibCheck": true,
+
+        // Required options
+        "noImplicitAny": true
+    },
+    "include": ["src/**/*"]
+}
