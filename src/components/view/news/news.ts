@@ -12,10 +12,7 @@ class News {
 
         news.forEach((item: Article, idx: number) => {
 
-
             const newsClone = newsItemTemp.content.cloneNode(true) as DocumentFragment;
-
-            if (!(newsClone instanceof Element)) return;
 
             if (idx % 2) newsClone.querySelector('.news__item')?.classList.add('alt');
 
