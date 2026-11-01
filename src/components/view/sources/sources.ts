@@ -1,20 +1,34 @@
+import type { ArticleSource, SourceItem } from '../../../types.ts';
 import './sources.css';
 
 class Sources {
-    draw(data) {
+    draw(data: SourceItem[]) {
         const fragment = document.createDocumentFragment();
-        const sourceItemTemp = document.querySelector('#sourceItemTemp');
+        const sourceItemTemp = document.querySelector('#sourceItemTemp') as HTMLTemplateElement;
+
+        if (!sourceItemTemp) return;
 
         data.forEach((item) => {
-            const sourceClone = sourceItemTemp.content.cloneNode(true);
+            const sourceClone = sourceItemTemp.content.cloneNode(true) as DocumentFragment;
 
-            sourceClone.querySelector('.source__item-name').textContent = item.name;
-            sourceClone.querySelector('.source__item').setAttribute('data-source-id', item.id);
+            const itemName = sourceClone.querySelector('.source__item-name');
+            if (itemName) {
+                itemName.textContent = item.name;
+            }
+
+            const itemContainer = sourceClone.querySelector('.source__item');
+            if (itemContainer) {
+                itemContainer.setAttribute('data-source-id', item.id);
+            }
 
             fragment.append(sourceClone);
         });
 
-        document.querySelector('.sources').append(fragment);
+        const sourcesContainer = document.querySelector('.sources');
+        if (sourcesContainer) {
+            sourcesContainer.innerHTML = '';
+            sourcesContainer.append(fragment);
+        }
     }
 }
 

@@ -1,12 +1,13 @@
 {
     "compilerOptions": {
-        "allowJs": true,
+        // "allowJs": true,
+        "allowImportingTsExtensions": true, 
         "noEmit": true,
 
         "module": "NodeNext",
         "moduleResolution": "NodeNext",
         "target": "esnext",
-        "types": [],
+        "types": ["node"],
 
         // Other Outputs
         "sourceMap": true,
@@ -29,5 +30,5 @@
         // Required options
         "noImplicitAny": true
     },
-    "include": ["src/*"]
+    "include": ["src/**/*"]
 }
