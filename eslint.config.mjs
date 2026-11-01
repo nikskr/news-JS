@@ -3,9 +3,9 @@ import globals from 'globals';
 import tseslint from 'typescript-eslint';
 import { defineConfig } from 'eslint/config';
 
-export default defineConfig([
+export default defineConfig(
+    ...tseslint.configs.recommended,
     {
-        ...tseslint.configs.recommended,
         files: ['src/**/*.{js,mjs,cjs,ts,mts,cts}'],
         plugins: { js },
         extends: ['js/recommended'],
@@ -17,6 +17,6 @@ export default defineConfig([
             'no-var': 'error',
             'prefer-const': 'error',
             'no-console': 'warn',
-        },
-    },
-]);
+        }
+    }
+);
