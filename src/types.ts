@@ -1,3 +1,5 @@
+import type News from "./components/view/news/news";
+
 export interface ArticleSource {
     id: string;
     name: string;
@@ -35,6 +37,4 @@ export interface NewsResponse {
     articles: Article[];
 }
 
-export type SourcesCallback = (data: SourcesResponse) => void;
-export type NewsCallback = (data: NewsResponse) => void;
-export type LoadCallbackType<T> = (data: T) => void;
+export type CallbackType<T> = (_data: T) => void;

@@ -1,4 +1,4 @@
-import type { LoadCallbackType, NewsCallback, SourcesCallback } from "../../types.js";
+import type { CallbackType } from "../../types.js";
 
 type UrlOptionsType = Record<string, string>;
 
@@ -25,14 +25,14 @@ class Loader {
 
     getResp<T>(
         { endpoint, options = {} }: GetRespArgsInterface,
-        callback: LoadCallbackType<T> = (_data: T) => {
+        callback: CallbackType<T> = (_data: T) => {
             console.error('No callback for GET response');
         }
     ) {
-        this.load(HttpMethod.GET, endpoint, callback as NewsCallback | SourcesCallback, options);
+        this.load(HttpMethod.GET, endpoint, callback, options);
     }
 
-    errorHandler(res: Response) {
+    private errorHandler(res: Response) {
         if (!res.ok) {
             if (res.status === 401 || res.status === 404)
                 console.log(`Sorry, but there is ${res.status} error: ${res.statusText}`);
@@ -42,7 +42,7 @@ class Loader {
         return res;
     }
 
-    makeUrl(options: UrlOptionsType, endpoint: string) {
+    private makeUrl(options: UrlOptionsType, endpoint: string) {
         const urlOptions = { ...this.options, ...options };
         let url = `${this.baseLink}${endpoint}?`;
 
@@ -53,7 +53,7 @@ class Loader {
         return url.slice(0, -1);
     }
 
-    load(method: HttpMethod, endpoint: string, callback: NewsCallback | SourcesCallback, options: UrlOptionsType = {}) {
+    load<T>(method: HttpMethod, endpoint: string, callback: CallbackType<T>, options: UrlOptionsType = {}) {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
             .then((res) => res.json())
