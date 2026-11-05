@@ -1,5 +1,5 @@
-import type { LoadCallbackType, NewsResponse, SourcesResponse } from '../../types.ts';
-import AppLoader from './appLoader.ts';
+import type { LoadCallbackType, NewsResponse, SourcesResponse } from '../../types';
+import AppLoader from './appLoader';
 
 class AppController extends AppLoader {
     getSources(callback: LoadCallbackType<SourcesResponse>) {

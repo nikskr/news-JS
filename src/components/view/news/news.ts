@@ -1,4 +1,4 @@
-import type { Article } from '../../../types.ts';
+import type { Article } from '../../../types';
 import './news.css';
 
 class News {

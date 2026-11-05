@@ -1,6 +1,6 @@
-import type { NewsResponse, SourcesResponse } from '../../types.ts';
-import AppController from '../controller/controller.ts';
-import { AppView } from '../view/appView.ts';
+import type { NewsResponse, SourcesResponse } from '../../types';
+import AppController from '../controller/controller';
+import { AppView } from '../view/appView';
 
 
 

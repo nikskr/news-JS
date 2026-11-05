@@ -1,4 +1,4 @@
-import type { LoadCallbackType, NewsCallback, SourcesCallback } from "../../types.ts";
+import type { LoadCallbackType, NewsCallback, SourcesCallback } from "../../types.js";
 
 type UrlOptionsType = Record<string, string>;
 
