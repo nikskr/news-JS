@@ -1,5 +1,3 @@
-import type News from "./components/view/news/news";
-
 export interface ArticleSource {
     id: string;
     name: string;
