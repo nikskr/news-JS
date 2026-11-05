@@ -6,15 +6,15 @@ import { AppView } from '../view/appView';
 
 class App {
 
-    controller: AppController;
-    view: AppView;
+    public controller: AppController;
+    public view: AppView;
 
     constructor() {
         this.controller = new AppController();
         this.view = new AppView();
     }
 
-    start(): void {
+    public start(): void {
         document?.querySelector('.sources')?.addEventListener('click', (e) => this.controller.getNews(e, (data: NewsResponse) => this.view.drawNews(data)));
         this.controller.getSources((data: SourcesResponse) => this.view.drawSources(data));
     }
