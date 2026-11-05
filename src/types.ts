@@ -3,7 +3,8 @@ export interface ArticleSource {
     name: string;
 }
 
-export interface Article {
+
+interface Article {
     source: ArticleSource;
     author: string | null;
     title: string;
@@ -13,6 +14,12 @@ export interface Article {
     publishedAt: string;
     content: string | null;
 }
+
+type MakeOptional<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>;
+
+type OptionalArticle = MakeOptional<Article, 'author' | 'description' | 'urlToImage' | 'content'>
+
+export type ReadonlyArticle = Readonly<OptionalArticle>;
 
 export interface SourceItem {
     id: string;
@@ -32,7 +39,7 @@ export interface SourcesResponse {
 export interface NewsResponse {
     status: string;
     totalResults: number;
-    articles: Article[];
+    articles: ReadonlyArticle[];
 }
 
 export type CallbackType<T> = (_data: T) => void;

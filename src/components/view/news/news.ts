@@ -1,8 +1,8 @@
-import type { Article } from '../../../types';
+import type { ReadonlyArticle } from '../../../types';
 import './news.css';
 
 class News {
-    draw(data: Article[]): void {
+    draw(data: ReadonlyArticle[]): void {
         const news = data.length >= 10 ? data.filter((_item, idx) => idx < 10) : data;
 
         const fragment = document.createDocumentFragment();
@@ -10,7 +10,7 @@ class News {
 
         if (!newsItemTemp || !(newsItemTemp instanceof Element)) return;
 
-        news.forEach((item: Article, idx: number) => {
+        news.forEach((item: ReadonlyArticle, idx: number) => {
 
             const newsClone = newsItemTemp.content.cloneNode(true) as DocumentFragment;
 
