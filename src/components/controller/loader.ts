@@ -7,7 +7,12 @@ interface GetRespArgsInterface {
     options?: UrlOptionsType,
 }
 
-type HttpMethodType = 'GET' | 'POST' | 'PUT' | 'DELETE';
+enum HttpMethod {
+    GET = 'GET',
+    POST = 'POST',
+    PUT = 'PUT',
+    DELETE = 'DELETE'
+};
 
 class Loader {
     baseLink: string | undefined;
@@ -24,7 +29,7 @@ class Loader {
             console.error('No callback for GET response');
         }
     ) {
-        this.load('GET', endpoint, callback as NewsCallback | SourcesCallback, options);
+        this.load(HttpMethod.GET, endpoint, callback as NewsCallback | SourcesCallback, options);
     }
 
     errorHandler(res: Response) {
@@ -48,7 +53,7 @@ class Loader {
         return url.slice(0, -1);
     }
 
-    load(method: HttpMethodType, endpoint: string, callback: NewsCallback | SourcesCallback, options: UrlOptionsType = {}) {
+    load(method: HttpMethod, endpoint: string, callback: NewsCallback | SourcesCallback, options: UrlOptionsType = {}) {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
             .then((res) => res.json())
