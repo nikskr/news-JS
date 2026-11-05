@@ -28,7 +28,7 @@ class Loader {
         callback: CallbackType<T> = (_data: T) => {
             console.error('No callback for GET response');
         }
-    ): NewsResponse | SourcesResponse | void {
+    ): void {
         this.load(HttpMethod.GET, endpoint, callback, options);
     }
 
@@ -53,7 +53,7 @@ class Loader {
         return url.slice(0, -1);
     }
 
-    private load<T>(method: HttpMethod, endpoint: string, callback: CallbackType<T>, options: UrlOptionsType = {}): NewsResponse | SourcesResponse | void {
+    private load<T>(method: HttpMethod, endpoint: string, callback: CallbackType<T>, options: UrlOptionsType = {}): void {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
             .then((res) => res.json())
